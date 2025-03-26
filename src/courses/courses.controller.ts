@@ -28,13 +28,15 @@ import {
   
     @Get()
     @ApiOperation({ summary: 'Get all courses with pagination and filtering' })
-    @ApiQuery({ name: 'page', required: false, type: Number })
-    @ApiQuery({ name: 'limit', required: false, type: Number })
-    @ApiQuery({ name: 'search', required: false, type: String })
-    @ApiQuery({ name: 'category', required: false, type: String })
-    @ApiQuery({ name: 'level', required: false, type: String })
-    findAll(@Query() query: any) {
-      return this.coursesService.findAll(query);
+    // @ApiQuery({ name: 'page', required: false, type: Number })
+    // @ApiQuery({ name: 'limit', required: false, type: Number })
+    // @ApiQuery({ name: 'search', required: false, type: String })
+    // @ApiQuery({ name: 'category', required: false, type: String })
+    // @ApiQuery({ name: 'level', required: false, type: String })
+    findAll(
+        // @Query() query: any
+    ) {
+      return this.coursesService.findAll();
     }
   
     @Get('featured')

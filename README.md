@@ -1,73 +1,207 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Mini E-Learning Platform
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+This project is a **Next.js** and **NestJS**-powered e-learning platform featuring user authentication, course management, and OAuth integration.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+Frontend live link : https://e-learning-mini.vercel.app
 
-## Description
+Frontend Repo link : https://github.com/usmanahmedgoraya/min-e-learning.git
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+backend live link Swagger : https://mini-e-learning-backend.vercel.app/api
 
-## Installation
+backend repo link : https://github.com/usmanahmedgoraya/mini-e-learning-backend
 
-```bash
-$ npm install
+---
+
+## 🚀 Features
+
+### 🌐 Frontend (Next.js)
+- **User Authentication**:
+  - Email/password signup with **OTP verification**.
+  - Login with JWT token.
+  - Password reset via OTP.
+  - **Social login** (Google & GitHub).
+- **Course Management**:
+  - CRUD operations for courses.
+  - Featured & new courses sections.
+  - Category filtering.
+  - Slug-based URLs.
+- **UI Components**:
+  - Navbar with responsive design.
+  - Featured courses section.
+  - Search & filter functionality.
+  - Detailed course pages.
+- **Additional Features**:
+  - Contact Us page with form submission.
+
+### 🔥 Backend (NestJS)
+- **MongoDB Database** with Mongoose.
+- **Authentication** using JWT & OAuth.
+- **Email Verification & OTP for Password Reset** (Nodemailer).
+- **Swagger UI** for API documentation.
+- **Admin Features**:
+  - View all users.
+  - Manage courses.
+
+---
+
+## 📦 Tech Stack
+
+### Frontend
+- Next.js 15
+- React 19
+- TypeScript
+- Tailwind CSS
+- Framer Motion (for animations)
+- React Hook Form & Zod (for validation)
+- Redux Toolkit & React Query (for state management)
+
+### Backend
+- NestJS
+- MongoDB & Mongoose
+- Passport.js for authentication (JWT & OAuth)
+- Nodemailer for email services
+- Swagger for API documentation
+
+---
+
+## 🛠️ Local Setup Instructions
+
+### Prerequisites
+
+- **Node.js** (Latest LTS recommended)
+- **MongoDB Atlas** account or local MongoDB instance
+- **Google OAuth & GitHub OAuth** credentials
+- **Gmail account** for email service
+- 
+
+
+
+### Installation
+
+#### 1️⃣ Clone the Repository
+
+```sh
+git clone https://github.com/usmanahmedgoraya/min-e-learning.git
+cd min-e-learning
 ```
 
-## Running the app
+#### 2️⃣ Install Dependencies
 
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+```sh
+npm install
+# or
+yarn install
 ```
 
-## Test
+#### 3️⃣ Set Up Environment Variables
 
-```bash
-# unit tests
-$ npm run test
+Create a `.env.local` file in the root directory for the frontend.
 
-# e2e tests
-$ npm run test:e2e
+Create a `.env` file for the backend with:
 
-# test coverage
-$ npm run test:cov
+```env
+# MongoDB
+MONGO_URI=mongodb+srv://username:password@cluster0.mongodb.net/dbname?retryWrites=true&w=majority
+
+# JWT
+JWT_SECRET=your_jwt_secret
+JWT_EXPIRES=7d
+
+# OAuth
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_SECRET=your_google_secret
+GITHUB_CLIENT_ID=your_github_client_id
+GITHUB_SECRET=your_github_secret
+
+# Email
+HOST=smtp.gmail.com
+PORT=465
+SERVICE=gmail
+USERNAME=your_email@gmail.com
+MAIL_PASSWORD=your_app_password
 ```
 
-## Support
+#### 4️⃣ Start the Development Server
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+```sh
+npm run dev
+# or
+yarn dev
+```
 
-## Stay in touch
+Frontend will run on `http://localhost:3000/`  
+Backend will run on `http://localhost:3001/`
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+#### 5️⃣ Build for Production (Optional)
 
-## License
+```sh
+npm run build
+npm run start
+```
 
-Nest is [MIT licensed](LICENSE).
+---
+
+## 🔌 API Endpoints
+
+### Authentication (`/auth`)
+
+| Method | Endpoint           | Description                          |
+|--------|--------------------|--------------------------------------|
+| POST   | `/signup`          | Register new user (sends OTP)        |
+| POST   | `/verify-email`    | Verify email with OTP                |
+| POST   | `/login`           | User login                           |
+| POST   | `/password`        | Request password reset OTP           |
+| POST   | `/verify-reset-otp`| Verify password reset OTP            |
+| PUT    | `/reset-password`  | Reset password with verified OTP     |
+| POST   | `/resend-otp`      | Resend verification OTP              |
+| GET    | `/google`          | Initiate Google OAuth flow           |
+| GET    | `/google/redirect` | Google OAuth callback                |
+| GET    | `/github`          | Initiate GitHub OAuth flow           |
+| GET    | `/github/redirect` | GitHub OAuth callback                |
+
+### Courses (`/courses`)
+
+| Method | Endpoint           | Description                          |
+|--------|--------------------|--------------------------------------|
+| POST   | `/`                | Create new course                    |
+| GET    | `/`                | Get all courses                      |
+| GET    | `/featured`        | Get featured courses                 |
+| GET    | `/new`             | Get newest courses                   |
+| GET    | `/categories`      | Get all course categories            |
+| GET    | `/:id`             | Get course by ID                     |
+| GET    | `/slug/:slug`      | Get course by slug                   |
+| PUT    | `/:id`             | Update course                        |
+| DELETE | `/:id`             | Delete course                        |
+
+---
+
+## 🏗️ Deployment
+
+1. **Frontend Deployment on Vercel**  
+   - Connect your GitHub repository.
+   - Add environment variables.
+   - Deploy!
+
+2. **Backend Deployment on Vercel or Heroku**  
+   - Set up MongoDB database.
+   - Configure OAuth credentials.
+   - Add email credentials.
+
+3. **Environment Variables for Production**  
+   Ensure these are set in your hosting provider:
+   - `MONGO_URI`
+   - `JWT_SECRET`
+   - OAuth credentials
+   - Email credentials
+   - Frontend/backend URLs
+
+---
+
+## 🔐 Security Considerations
+
+1. Use **HTTPS** in production.
+2. Keep secrets **out of version control**.
+3. Rotate **JWT secrets** regularly.
+4. Implement **rate limiting** for auth endpoints.
+5. **Keep dependencies updated**.
+

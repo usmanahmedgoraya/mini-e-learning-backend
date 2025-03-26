@@ -6,11 +6,11 @@ import { CorsOptions } from '@nestjs/common/interfaces/external/cors-options.int
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  
+
   app.useGlobalPipes(new ValidationPipe({ transform: true }));
 
   const corsOptions: CorsOptions = {
-    origin: ['http://localhost:3000', 'http://localhost:3001'],
+    origin: ['http://localhost:3000', 'http://localhost:3001','https://e-learning-mini.vercel.app'],
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH", 'OPTIONS']
   };
 

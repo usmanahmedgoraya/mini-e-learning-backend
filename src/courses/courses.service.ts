@@ -22,35 +22,35 @@ export class CoursesService {
   async findAll(
     query: any = {},
   ): Promise<{ data: Course[]; count: number }> {
-    const { page = 1, limit = 10, search, category, level, ...filters } = query;
-    const skip = (page - 1) * limit;
+    // const { page = 1, limit = 10, search, category, level, ...filters } = query;
+    // const skip = (page - 1) * limit;
 
-    const dbQuery: any = { ...filters };
+    // const dbQuery: any = { ...filters };
 
-    if (search) {
-      dbQuery.$or = [
-        { title: { $regex: search, $options: 'i' } },
-        { description: { $regex: search, $options: 'i' } },
-        { tags: { $regex: search, $options: 'i' } }
-      ];
-    }
+    // if (search) {
+    //   dbQuery.$or = [
+    //     { title: { $regex: search, $options: 'i' } },
+    //     { description: { $regex: search, $options: 'i' } },
+    //     { tags: { $regex: search, $options: 'i' } }
+    //   ];
+    // }
 
-    if (category) {
-      dbQuery.category = category;
-    }
+    // if (category) {
+    //   dbQuery.category = category;
+    // }
 
-    if (level) {
-      dbQuery.level = level;
-    }
+    // if (level) {
+    //   dbQuery.level = level;
+    // }
 
     const courses = await this.courseModel
-      .find(dbQuery)
-      .skip(skip)
-      .limit(limit)
-      .sort({ createdAt: -1 })
-      .exec();
+      .find()
+    //   .skip(skip)
+    //   .limit(limit)
+    //   .sort({ createdAt: -1 })
+    //   .exec();
 
-    const count = await this.courseModel.countDocuments(dbQuery);
+    const count = await this.courseModel.countDocuments();
 
     return { data: courses, count };
   }
